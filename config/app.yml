@@ -1,0 +1,10 @@
+database:
+  host: "localhost"
+  port: 3306
+  user: "root"
+  password: "nedovizt26"
+  database: "it_inventory_47"
+
+flask:
+  DEBUG: True
+  SQLALCHEMY_TRACK_MODIFICATIONS: False
