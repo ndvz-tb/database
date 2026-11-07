@@ -1,0 +1,112 @@
+{
+  "info": {
+    "_postman_id": "lab4-it-inventory-47",
+    "name": "Lab 4 - IT Inventory (Variant 47)",
+    "description": "CRUD operations and M:1 / M:M relationships testing for Lab 4 (Taras Nedoviz, IP-22)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. GET All Offices (Read)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/offices",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "5000",
+          "path": ["api", "offices"]
+        }
+      }
+    },
+    {
+      "name": "2. POST Create Office (Create)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"city\": \"Ternopil\",\n  \"address\": \"Ruska 12\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/offices",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "5000",
+          "path": ["api", "offices"]
+        }
+      }
+    },
+    {
+      "name": "3. PUT Update Office (Update)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"city\": \"Ternopil\",\n  \"address\": \"Ruska 99 (Updated)\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/offices/11",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "5000",
+          "path": ["api", "offices", "11"]
+        }
+      }
+    },
+    {
+      "name": "4. DELETE Office (Delete)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/offices/11",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "5000",
+          "path": ["api", "offices", "11"]
+        }
+      }
+    },
+    {
+      "name": "5. GET Departments With Employees (M:1 Relationship)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/departments/with-employees",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "5000",
+          "path": ["api", "departments", "with-employees"]
+        }
+      }
+    },
+    {
+      "name": "6. GET Employees With Offices (M:M Relationship)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/employees/with-offices",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "5000",
+          "path": ["api", "employees", "with-offices"]
+        }
+      }
+    }
+  ]
+}
