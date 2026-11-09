@@ -48,21 +48,18 @@ def _register_crud_routes(bp: Blueprint, path: str, controller, model_cls):
         return make_response(jsonify({"message": f"{model_cls.__name__} with ID {item_id} deleted successfully"}), HTTPStatus.OK)
 
 
-# CRUD-маршрути для основних таблиць
 _register_crud_routes(api_bp, "offices", office_controller, Office)
 _register_crud_routes(api_bp, "employees", employee_controller, Employee)
 _register_crud_routes(api_bp, "departments", department_controller, Department)
 _register_crud_routes(api_bp, "employee-offices", employee_office_controller, EmployeeOffice)
 
 
-# ==================== ЗВ'ЯЗОК M:1 (One-to-Many) ====================
 @api_bp.route("/departments/with-employees", methods=["GET"])
 def get_departments_with_employees() -> Response:
     """Вимога методички: вивід зі сторони зв'язку M:1 (для кожного відділу вивести працівників)."""
     return make_response(jsonify(department_controller.find_all_with_employees()), HTTPStatus.OK)
 
 
-# ==================== СТИКУВАЛЬНА ТАБЛИЦЯ M:M (Many-to-Many) ====================
 @api_bp.route("/employees/with-offices", methods=["GET"])
 def get_employees_with_offices() -> Response:
     """Вимога методички: вивід зі стикувальної таблиці зв'язку M:M (для працівника вивести його офіси)."""
